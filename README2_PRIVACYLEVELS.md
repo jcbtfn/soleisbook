@@ -6,3 +6,8 @@
 4 PU1 > Just the friends of my friends
 5 PU2 > Just registered users
 6 PU3 > Everyone can access the content
+
+      <p>Post reported: <span th:text="${post.reported}"></span></p> 
+      --ADD COLUMN created_at TIMESTAMPTZ DEFAULT Now(),
+      --ADD COLUMN created_at varchar(50) NOT NULL,
+      <p>Post created at: <span th:text="${post.created_at}"></span></p>

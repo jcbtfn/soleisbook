@@ -23,17 +23,27 @@
       <option value="PR1">Just me</option>
       <option value="PR2">Just my selected contacts</option>
       <option value="PR3">All my contacts</option>
-      <option value="PU1">My contacts and their friends</option>
-      <option value="PU2">All registered users</option>
-      <option value="PU3">This content is public</option>
+      <option value="PB1">My contacts and their friends</option>
+      <option value="PB2">All registered users</option>
+      <option value="PB3">This content is public</option>
     </select>
 
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
 
-  <ul th:each="post: ${posts}">
-    <li th:text="${post.content}" />
-  </ul>
+  <ol th:each="post: ${posts}">
+    <div>
+      <p th:text="${post.content}"/>
+      <label for="extrainfo">More info:</label>
+      <select name="extrainfo" id="extrainfo">
+        <option value="privacy level"><p>Privacy level <span th:text="${post.privacy}"></span></p></option>
+        <option value="created"><p>Post created at: <span th:text="${post.created}"></span></p></option>
+        <option value="reported"><p>Post reported: <span th:text="${post.reported}"></span></p></option>
+        <option value="deleted"><p>Post deleted: <span th:text="${post.deleted}"></span></p></option>
+      </select>
+      <p>-----------------------------------</p>
+    </div>
+  </ol>
 
 </body>
 
